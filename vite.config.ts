@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/hirestack/", // 👈 REQUIRED for GitHub Pages
+  base: "/", // 👈 REQUIRED for GitHub Pages
 
   server: {
     host: "::",
