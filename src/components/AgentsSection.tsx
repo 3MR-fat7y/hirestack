@@ -24,70 +24,62 @@ export const AgentsSection = () => {
   const agents = [
     {
       name: "Adam",
-      role: "E-commerce Specialist",
-      level: "Mid-Level (Reliable & Autonomous)",
-      industries: "Retail, Fashion, Food & Beverage",
-      description: "Manages WhatsApp outreach, recovers abandoned carts, and updates customers on order status automatically.",
+      role: "Revenue Operations Agent",
+      level: "Mid-Level (Autonomous Execution)",
+      industries: "Retail, E-commerce, Food & Beverage",
+      description:
+        "Automates WhatsApp outreach, cart recovery, and order updates to improve conversion and reduce support load.",
       avatar: adamAvatar,
     },
     {
       name: "Sarah",
-      role: "HR Assistant",
-      level: "Junior Associate (Fast Learner)",
-      industries: "Corporate, Factories, Outsourcing Agencies",
-      description: "Instantly answers employee FAQs based on your company policy (PDFs) and handles onboarding basics.",
+      role: "People Operations Agent",
+      level: "Junior Associate (Policy-Aware)",
+      industries: "Corporate, Manufacturing, BPO",
+      description:
+        "Answers employee policy questions, supports onboarding, and keeps HR communications consistent and available 24/7.",
       avatar: sarahAvatar,
     },
     {
       name: "Omar",
-      role: "Junior Paralegal",
-      level: "Junior (Research Focused)",
-      industries: "Law Firms, Real Estate, Consultancy",
-      description: "Scans thousands of uploaded documents/contracts to find clauses, precedents, and specific answers in seconds.",
+      role: "Legal Operations Agent",
+      level: "Junior Analyst (Research Focused)",
+      industries: "Legal, Real Estate, Advisory",
+      description:
+        "Searches large contract and legal document sets in seconds to surface clauses, risks, and precedent insights.",
       avatar: omarAvatar,
     },
   ];
 
   return (
     <>
-      <section id="agents" className="py-20 bg-background">
-        <div className="container px-4 mx-auto">
-          <div className="max-w-6xl mx-auto space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-                Meet Your Digital Workforce
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Each AI agent is pre-trained, industry-ready, and available for immediate hire.
+      <section id="agents" className="bg-background py-20">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-6xl space-y-12">
+            <div className="space-y-4 text-center">
+              <h2 className="text-4xl font-bold text-foreground md:text-5xl">Choose your AI workforce by function</h2>
+              <p className="mx-auto max-w-3xl text-lg text-muted-foreground md:text-xl">
+                Every agent is packaged with prebuilt workflows, KPI tracking, and enterprise-ready handover support.
               </p>
             </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {agents.map((agent) => (
-              <AgentCard
-                key={agent.name}
-                {...agent}
-                onHire={() => handleHire(agent.name)}
-                onViewSample={() => handleViewSample(agent.name)}
-              />
-            ))}
-          </div>
+
+            <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {agents.map((agent) => (
+                <AgentCard
+                  key={agent.name}
+                  {...agent}
+                  onHire={() => handleHire(agent.name)}
+                  onViewSample={() => handleViewSample(agent.name)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
-      
-      <HireModal
-        open={isModalOpen}
-        onOpenChange={setIsModalOpen}
-        agentName={selectedAgent}
-        isCustomHire={false}
-      />
-      
-      <WorkSampleModal
-        open={isSampleModalOpen}
-        onOpenChange={setIsSampleModalOpen}
-        agentName={selectedAgent}
-      />
+
+      <HireModal open={isModalOpen} onOpenChange={setIsModalOpen} agentName={selectedAgent} isCustomHire={false} />
+
+      <WorkSampleModal open={isSampleModalOpen} onOpenChange={setIsSampleModalOpen} agentName={selectedAgent} />
     </>
   );
 };
